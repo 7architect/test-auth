@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <auth-form v-on:form:success="redirect" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import AuthForm from "../components/auth-form";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    AuthForm
+  },
+
+  methods: {
+    redirect(event) {
+      console.log(event);
+      this.$router.push('/user')
+    }
   }
 };
 </script>
